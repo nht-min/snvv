@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Sinh Nhật</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6f2;
+            margin: 0;
+        }
+        .card {
+            width: 300px;
+            height: 200px;
+            background-color: #ff99cc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .front, .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .front {
+            background-color: #ff99cc;
+            color: #fff;
+            font-size: 24px;
+        }
+        .back {
+            background-color: #ff6699;
+            color: #fff;
+            font-size: 20px;
+            transform: rotateY(180deg);
+        }
+        .card.open .front {
+            transform: rotateY(180deg);
+        }
+        .card.open .back {
+            transform: rotateY(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="card" onclick="toggleCard()">
+        <div class="front">
+            Happy Birthday
+        </div>
+        <div class="back">
+            Chúc B.Nhii sinh nhật vui vẻ!
+        </div>
+    </div>
+
+    <script>
+        function toggleCard() {
+            const card = document.querySelector('.card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
